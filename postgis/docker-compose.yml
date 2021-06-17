@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  database:
+    image: postgis/postgis
+    ports:
+      - 5434:5432
+    restart: always
+    environment:
+      - POSTGRES_USER=gis
+      - POSTGRES_DB=gis
+      - POSTGRES_PASSWORD=gis
+    volumes:
+      - ./init/:/docker-entrypoint-initdb.d/
+    
